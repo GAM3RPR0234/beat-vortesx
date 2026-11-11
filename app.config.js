@@ -63,16 +63,20 @@ const widgetConfig = {
 };
 
 export default (config) => {
-  // The config passed in is already the expo config object
+  // getConfig passes an object with { projectRoot, staticConfigPath, packageJsonPath, config }
+  // where config.config is the actual static config from app.json
+  const baseConfig = config.config || config;
+  // Filter out string 'expo-widget' from plugins to avoid duplicate plugin with no options
+  // Also filter out expo-widget array plugin from base config (we define our own below)
+  const filteredPlugins = (baseConfig.plugins || []).filter(p => {
+    if (p === 'expo-widget') return false;
+    if (Array.isArray(p) && p[0] === 'expo-widget') return false;
+    return true;
+  });
+  // TODO: Re-enable expo-widget when widget source files are implemented
+  // For now, disable to allow Android build to succeed
   return {
-    ...config,
-    // expo-widget configuration
-    plugins: [
-      ...(config.plugins || []),
-      [
-        'expo-widget',
-        widgetConfig,
-      ],
-    ],
+    ...baseConfig,
+    plugins: filteredPlugins,
   };
 };
