@@ -1,0 +1,96 @@
+{
+  "expo": {
+    "name": "Beat Vortex",
+    "slug": "beat-vortex",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/images/icon.png",
+    "splash": {
+      "image": "./src/assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0a0a0f"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.beatvortex.app",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "audio",
+          "fetch",
+          "remote-notification"
+        ],
+        "NSPhotoLibraryAddUsageDescription": "Beat Vortex necesita acceso para guardar carátulas de álbumes",
+        "NSPhotoLibraryUsageDescription": "Beat Vortex necesita acceso para seleccionar carátulas de álbumes",
+        "NSMicrophoneUsageDescription": "Beat Vortex no usa el micrófono"
+      },
+      "associatedDomains": [
+        "applinks:beatvortex.app"
+      ]
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/images/adaptive-icon.png",
+        "backgroundColor": "#0a0a0f"
+      },
+      "package": "com.andylivesxss.beatvortex",
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK",
+        "android.permission.WAKE_LOCK",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.MEDIA_CONTENT_CONTROL",
+        "android.permission.POST_NOTIFICATIONS",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "beatvortex"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
+    },
+    "web": {
+      "favicon": "./src/assets/images/favicon.png",
+      "bundler": "metro"
+    },
+    "scheme": "beatvortex",
+    "plugins": [
+      "expo-av",
+      "expo-file-system",
+      "expo-media-library",
+      "expo-notifications",
+      "expo-screen-orientation",
+      "expo-secure-store",
+      "expo-widget",
+      "expo-background-fetch",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          }
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "a887261a-6b20-43d2-82cd-abb913353975"
+      }
+    },
+    "owner": "gam3rpr023sx"
+  }
+}
