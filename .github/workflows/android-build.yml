@@ -41,7 +41,6 @@ jobs:
         with:
           api-level: 34
           ndk-version: r27b
-          cmdline-tools-version: 'latest'
 
       # 5. Cache de dependencias (acelera builds siguientes)
       - name: Cache Gradle packages
