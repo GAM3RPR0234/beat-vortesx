@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_miniplayer_name">Beat Vortex MiniPlayer</string>
+    <string name="widget_recently_played_name">Beat Vortex Recently Played</string>
+    <string name="widget_quick_actions_name">Beat Vortex Quick Actions</string>
+    <string name="app_name">Beat Vortex Widgets</string>
+</resources>

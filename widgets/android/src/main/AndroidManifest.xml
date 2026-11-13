@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.andylivesxss.beatvortex.widget">
+
+    <application>
+        <!-- MiniPlayer Widget -->
+        <receiver
+            android:name=".MiniPlayerWidgetReceiver"
+            android:exported="true"
+            android:label="@string/widget_miniplayer_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/miniplayer_widget_info" />
+        </receiver>
+
+        <!-- Recently Played Widget -->
+        <receiver
+            android:name=".RecentlyPlayedWidgetReceiver"
+            android:exported="true"
+            android:label="@string/widget_recently_played_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/recently_played_widget_info" />
+        </receiver>
+
+        <!-- Quick Actions Widget -->
+        <receiver
+            android:name=".QuickActionsWidgetReceiver"
+            android:exported="true"
+            android:label="@string/widget_quick_actions_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/quick_actions_widget_info" />
+        </receiver>
+    </application>
+</manifest>

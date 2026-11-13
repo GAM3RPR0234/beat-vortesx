@@ -6,7 +6,8 @@ const widgetConfig = {
     src: 'widgets/android',
     widgets: [
       {
-        name: 'MiniPlayer',
+        name: 'MiniPlayerWidgetReceiver',
+        label: 'MiniPlayer',
         description: 'Control playback from your home screen',
         icon: 'play-circle',
         sizes: ['small', 'medium', 'large'],
@@ -14,7 +15,8 @@ const widgetConfig = {
         updateInterval: 30, // seconds
       },
       {
-        name: 'Recently Played',
+        name: 'RecentlyPlayedWidgetReceiver',
+        label: 'Recently Played',
         description: 'Quick access to your recent tracks',
         icon: 'history',
         sizes: ['medium', 'large'],
@@ -22,7 +24,8 @@ const widgetConfig = {
         updateInterval: 300, // 5 minutes
       },
       {
-        name: 'Quick Actions',
+        name: 'QuickActionsWidgetReceiver',
+        label: 'Quick Actions',
         description: 'Shuffle, favorites, downloads, play/pause',
         icon: 'flash',
         sizes: ['small', 'medium'],
@@ -73,10 +76,16 @@ export default (config) => {
     if (Array.isArray(p) && p[0] === 'expo-widget') return false;
     return true;
   });
-  // TODO: Re-enable expo-widget when widget source files are implemented
-  // For now, disable to allow Android build to succeed
+  // Widget configuration with expo-widget plugin
+  // Widget source files now exist in widgets/android and widgets/ios
   return {
     ...baseConfig,
-    plugins: filteredPlugins,
+    plugins: [
+      ...filteredPlugins,
+      [
+        'expo-widget',
+        widgetConfig,
+      ],
+    ],
   };
 };
