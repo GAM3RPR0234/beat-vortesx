@@ -87,7 +87,7 @@ jobs:
 
       # 6. Instalar dependencias npm
       - name: Install npm dependencies
-        run: npm ci
+        run: npm install
 
       # 7. Generar código nativo (prebuild) - IMPORTANTE para Expo
       - name: Expo prebuild (Android)
